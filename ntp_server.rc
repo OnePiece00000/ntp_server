@@ -1,0 +1,8 @@
+service ntp_server /system/bin/ntp_server start
+        class late_start
+        user root
+        disabled
+        oneshot
+
+on property:sys.boot_completed=1
+    start ntp_server
